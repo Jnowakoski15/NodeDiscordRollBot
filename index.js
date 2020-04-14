@@ -33,4 +33,4 @@ client.on('message', msg => {
     }
 });
 
-client.login('Njk5NjExMDIyMzc3NjE1NDIw.XpXIYQ.IC9LJHnkT055gb3hSJPfh9G7jY0');
+client.login('Fail');
