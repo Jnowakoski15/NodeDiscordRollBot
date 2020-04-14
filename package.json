@@ -1,0 +1,25 @@
+{
+  "name": "nodediscordrollbot",
+  "version": "1.0.0",
+  "description": "Used to roll numbers in discord chat",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaymanx15/NodeDiscordRollBot.git"
+  },
+  "keywords": [
+    "roll"
+  ],
+  "author": "Jason Nowakoski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaymanx15/NodeDiscordRollBot/issues"
+  },
+  "homepage": "https://github.com/jaymanx15/NodeDiscordRollBot#readme",
+  "dependencies": {
+    "discord.js": "^12.1.1"
+  }
+}
