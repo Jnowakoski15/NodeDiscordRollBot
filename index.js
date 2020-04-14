@@ -1,9 +1,29 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
+let messageMap = new Map();
+
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
+
+messageMap.set('ping', (msg) => msg.reply('pong'));
+messageMap.set('pong', (msg) => msg.reply('ping'));
+messageMap.set('!flip', (msg) => {
+    var rndInt = getRandomInt(2);
+    if (rndInt) {
+        msg.reply('**heads**');
+    }
+    else {
+        msg.reply('**tails**')
+    }
+})
+
+messageMap.set('!roll', (msg) => {
+    var rndInt = getRandomInt(20) + 1;
+    msg.reply(" you rolled **" + rndInt + "**")
+})
+
 
 
 client.on('ready', () => {
@@ -11,26 +31,10 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-    if (msg.content === 'ping') {
-        msg.reply('pong')
-    }
-
-    if (msg.content === '!flip') {
-        var rndInt = getRandomInt(2);
-        console.log(rndInt);
-        if (rndInt) {
-            msg.reply('**heads**');
-        }
-        else {
-            msg.reply('**tails**')
-        }
-    }
-
-    if (msg.content === '!roll') {
-        var rndInt = getRandomInt(20) + 1;
-        console.log(rndInt);
-        msg.reply(" you rolled **" + rndInt + "**")
+    let messenger = messageMap.get(msg.content);
+    if (messenger != null) {
+        messenger(msg)
     }
 });
 
-client.login('Fail');
+client.login(process.env.DISCORD_TOKEN);
